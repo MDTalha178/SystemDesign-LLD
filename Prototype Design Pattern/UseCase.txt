@@ -1,0 +1,22 @@
+1: UseCase of Design Pattern
+2: Why do we need a prototype design Pattern
+
+UseCase:
+    Suppose we have an e-commerce application and when ever user order we send an email conformation order details or order conformation so
+    here Suppose for every order we need to create email instance to send an email but some instance creation is very expensive .. expensive means while 
+    creating an object for this may be we are performing some operation that are very expensive like our case when create an object we ready file
+    form s3 to get a email template (File IO operation) is very expensive for each creation of new object is not a good idea
+
+
+
+    Problem:
+    class EmailService:
+        def __init__(self, subject, email_service):
+            self.subject = subject
+            self.email_service = email_service
+            self.template = "Suppose This template get from S3 and this a heavy operation and we need to replace a user details this operation take time"
+        
+
+
+2: Prototype design Pattern:
+    It helps us to create a copy of an object so we don't need to perform a heavy operation on each time or at every object creation
