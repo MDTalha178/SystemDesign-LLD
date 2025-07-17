@@ -1,0 +1,8 @@
+Problem Statement:
+
+In modern applications, especially those involving graphical user interfaces, it’s common to work with images—whether for displaying products in an e-commerce site, loading profile pictures in a social media app, or rendering thumbnails in a gallery.
+
+However, loading images from disk or remote servers can be resource-intensive and time-consuming, particularly when the images are large or stored in high-latency locations (e.g., cloud storage or network drives). If we attempt to load all images at once, this can lead to poor performance, increased memory usage, and a sluggish user experience.
+
+We need an efficient way to delay the loading of heavy image resources until they are actually needed (e.g., when they come into view or are clicked on). At the same time, we want to manage access to the image loading logic in a clean and controlled way.
+
