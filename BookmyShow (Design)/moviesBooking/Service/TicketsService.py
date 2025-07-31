@@ -1,6 +1,7 @@
 from moviesBooking.Repository.ShowSeatsRepository import ShowSeatsRepository
 from moviesBooking.Repository.TicketsRepository import TicketRepository
 from moviesBooking.models import ShowSeats
+from django.db.transaction import atomic
 
 
 class TicketService:
@@ -9,6 +10,7 @@ class TicketService:
         self.ticket_repo = ticket_repo
         self.show_seat_repo = ShowSeatsRepository()
 
+    @atomic()
     def book_ticket(self, user_id, show_id, seat_id: list):
         show_seat = list(self.show_seat_repo.find_show_by_show_seat_id(show_id=show_id, show_seat_id=seat_id))
         tickets = self.ticket_repo.create_tickets(
